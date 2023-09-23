@@ -23,9 +23,11 @@ app.use(express.json());
 
 const contactRouter = require("./routes/contact");
 const projectRouter = require("./routes/project");
+const blogRouter = require("./routes/blog");
 
 app.use("/contact", contactRouter);
 app.use("/project", projectRouter);
+app.use("/blog", blogRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
