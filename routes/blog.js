@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
 
 // Get blog post details
 router.get("/:id", getBlogPost, (req, res) => {
-  console.log("res.post in get post details => ", res.post);
   res.json(res.post);
 });
 
@@ -34,7 +33,6 @@ router.post("/", async (req, res) => {
 
   try {
     const newPost = await post.save();
-    console.log("New post created => ", post);
     res.status(201).json(newPost);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -67,7 +65,6 @@ router.patch("/:id", getBlogPost, async (req, res) => {
 
   try {
     const updatedPost = await res.post.save();
-    console.log("Updated blog post => ", updatedPost);
     res.json(updatedPost);
   } catch (error) {
     res.status(400).json({ message: error.message });
